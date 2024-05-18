@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navbar(props) {
+export default function Navbar() {
     return (
         <nav className='justify-between flex bg-indigo-900 text-white py-2'>
             <span className=' font-bold text-xl mx-8'>Tasks</span>
