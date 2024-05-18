@@ -2,13 +2,13 @@ import React from 'react'
 
 export default function Navbar(props) {
   return (
-    <nav className=' flex mx-auto'>
+    <nav className='justify-between flex bg-indigo-900 text-white py-2'>
         <div className='logo'>
-            <span className='justify-between flex bg-slate-800 text-slate-200'>Tasks</span>
+            <span className=' font-bold text-xl mx-8'>Tasks</span>
         </div>
-        <ul>
-            <li>Home</li>
-            <li>Youe Tasks</li>
+        <ul className='flex gap-8 mx-9'> 
+            <li className=' cursor-pointer hover:font-bold transition-all'>Home</li>
+            <li className=' cursor-pointer hover:font-bold transition-all'>Youe Tasks</li>
         </ul>
     </nav>
   )
