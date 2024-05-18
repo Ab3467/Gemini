@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className=" bg-violet-100 p-5 rounded-md my-5 mx-auto container">
+      <div className=" bg-violet-100 p-5 rounded-lg my-11 mx-auto container">
          <h1 className=" text-xl font-bold">Your Todos</h1>
       </div>
     </>
