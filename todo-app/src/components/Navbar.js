@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <>
     <nav>
-       <ul className='px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200  hover:text-white'>
+       <ul className='flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-grey-800 text-grey-500'>
         <li>Home</li>
         <li>About</li>
        </ul>
