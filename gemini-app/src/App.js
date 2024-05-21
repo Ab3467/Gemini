@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-
+import Sidebar from "../src/components/sidebar/Sidebar.js"
 
 function App() {
   return (
     <>
-    
+    <Sidebar/>
     </>
   );
 }
