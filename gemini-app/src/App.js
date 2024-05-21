@@ -1,9 +1,11 @@
 import logo from './logo.svg';
-import './App.css';
+import sidebar from './components/sidebar/sidebar';
 
 function App() {
   return (
-  <div className="">Gemini App</div>
+  <div>
+    <Sidebar/>
+  </div>
   );
 }
 
