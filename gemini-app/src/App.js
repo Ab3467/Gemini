@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import sidebar from './components/sidebar/sidebar';
+import Sidebar from './components/sidebar/sidebar';
 
 function App() {
   return (
