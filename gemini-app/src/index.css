@@ -4,5 +4,6 @@
   box-sizing: border-box;
 }
 #root{
-  
+  min-height: 100c;
+  display: flex;
 }
