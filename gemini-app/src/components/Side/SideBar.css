@@ -1,6 +1,7 @@
 .sidebar{
     min-height: 100vh;
-    flex-direction: column;
     display: inline-flex;
-    background-color: #34383d;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f0f4f9;
 }

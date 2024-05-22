@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets } from "../../assets/assets.js"
+import "./SideBar.css"
 
 export default function Side() {
   return (
