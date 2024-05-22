@@ -1,12 +1,13 @@
 import React from 'react'
+import assets from "../../assets/assets.js"
 
 export default function Side() {
   return (
     <div className='sidebar'>
       <div className='top'>
-        <img src={} alt="" className='menu'/>
+        <img src={assets.menu_icon} alt="" className='menu'/>
           <div className='new-chat'>
-          <img src={} alt="" />
+          <img src={assets.plus_icon} alt="" />
           <p>New Chat</p>
           </div>
       </div>
