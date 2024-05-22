@@ -1,0 +1,6 @@
+.sidebar{
+    min-height: 100vh;
+    flex-direction: column;
+    display: inline-flex;
+    background-color: #34383d;
+}
