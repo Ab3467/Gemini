@@ -20,15 +20,15 @@ export default function Side() {
         </div>
       </div>
       <div className="bottom">
-       <div className="botton-item recent-entry">
+       <div className="bottom-item recent-entry">
         <img src={assets.question_icon} alt="" />
         <p>Help</p>
        </div>
-       <div className="botton-item recent-entry">
+       <div className="bottom-item recent-entry">
         <img src={assets.history_icon} alt="" />
         <p>Activity</p>
        </div>
-       <div className="botton-item recent-entry">
+       <div className="bottom-item recent-entry">
         <img src={assets.setting_icon} alt="" />
         <p>Setting</p>
        </div>
