@@ -1,9 +1,9 @@
-import sidebar from "./components/Side/Side.js"
+import Side from "./components/Side/Side.js"
 
 function App() {
   return (
    <>
-   
+   <Side/>
    </>
   );
 }
