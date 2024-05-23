@@ -6,15 +6,13 @@ export default function Side() {
 
   const [extended,setextended] = useState(false)
 
-  const handleExtended = () =>{
-    setextended(true)
-  }
+  
   return (
     <div className='sidebar'>
       <div className='top'>
         <img src={assets.menu_icon} alt="" className='menu' />
         <div className='new-chat'>
-          <img onClick={handleExtended} src={assets.plus_icon} alt="" />
+          <img onClick={()=>setextended(prev=>!prev)} src={assets.plus_icon} alt="" />
           {extended ? <p>New Chat</p> : null}
         </div>
         {extended? <div className="recent">
