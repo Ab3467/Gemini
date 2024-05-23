@@ -1,42 +1,45 @@
-import React, { useState } from 'react'
+import React,{useState} from 'react'
 import { assets } from "../../assets/assets.js"
 import "./SideBar.css"
 
 export default function Side() {
 
-  const [extended, setextended] = useState(false)
+  const [extended,setextended] = useState(false)
+
+  const handleExtended = () =>{
+    setextended(true)
+  }
   return (
     <div className='sidebar'>
       <div className='top'>
         <img src={assets.menu_icon} alt="" className='menu' />
         <div className='new-chat'>
-          <img src={assets.plus_icon} alt="" />
+          <img onClick={handleExtended} src={assets.plus_icon} alt="" />
           {extended ? <p>New Chat</p> : null}
         </div>
-        {extended ? <div className="recent">
+        {extended? <div className="recent">
           <p className="recent-title">Recent</p>
           <div className="recent-entry">
             <img src={assets.message_icon} alt="" />
             <p>What is react ...</p>
           </div>
-        </div> : null
-        }
+        </div>: null
+         }
       </div>
-      {extended ? <div className="bottom">
+      <div className="bottom">
         <div className="bottom-item recent-entry">
           <img src={assets.question_icon} alt="" />
-          <p>Help</p>
+         {extended ? <p>Help</p> : null}
         </div>
         <div className="bottom-item recent-entry">
           <img src={assets.history_icon} alt="" />
-          <p>Activity</p>
+          {extended ? <p>Activity</p> : null}
         </div>
         <div className="bottom-item recent-entry">
           <img src={assets.setting_icon} alt="" />
-          <p>Setting</p>
+          {extended ? <p>Setting</p> : null}
         </div>
-      </div> : null
-      }
-    </div >
+      </div>
+    </div>
   )
 }
