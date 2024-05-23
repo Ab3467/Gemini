@@ -10,9 +10,9 @@ export default function Side() {
   return (
     <div className='sidebar'>
       <div className='top'>
-        <img src={assets.menu_icon} alt="" className='menu' />
+        <img onClick={()=>setExtended(prev=>!prev)} src={assets.menu_icon} alt="" className='menu' />
         <div className='new-chat'>
-          <img onClick={()=>setExtended(prev=>!prev)} src={assets.plus_icon} alt="" />
+          <img src={assets.plus_icon} alt="" />
           {extended ? <p>New Chat</p> : null}
         </div>
         { extended? <div className="recent">
