@@ -19,6 +19,18 @@ export default function Main() {
                 <p>Suggest beautiful places to see on an upcoming road trip</p>
                 <img src={assets.compass_icon} alt="" />
             </div>
+            <div className="card">
+                <p>Suggest beautiful places to see on an upcoming road trip</p>
+                <img src={assets.bulb_icon} alt="" />
+            </div>
+            <div className="card">
+                <p>Suggest beautiful places to see on an upcoming road trip</p>
+                <img src={assets.message_icon} alt="" />
+            </div>
+            <div className="card">
+                <p>Suggest beautiful places to see on an upcoming road trip</p>
+                <img src={assets.code_icon} alt="" />
+            </div>
         </div>
       </div>
     </div>
