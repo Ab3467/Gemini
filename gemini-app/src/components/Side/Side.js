@@ -4,22 +4,23 @@ import "./SideBar.css"
 
 export default function Side() {
 
-  const [extended,setextended] = useState()
+  const [extended,setextended] = useState(false)
   return (
     <div className='sidebar'>
       <div className='top'>
         <img src={assets.menu_icon} alt="" className='menu' />
         <div className='new-chat'>
           <img src={assets.plus_icon} alt="" />
-          <p>New Chat</p>
+          {extended ? <p>New Chat</p> : null}
         </div>
-        <div className="recent">
+        {extended? <div className="recent">
           <p className="recent-title">Recent</p>
           <div className="recent-entry">
             <img src={assets.message_icon} alt="" />
             <p>What is react ...</p>
           </div>
-        </div>
+        </div>: null
+         }
       </div>
       <div className="bottom">
         <div className="bottom-item recent-entry">
