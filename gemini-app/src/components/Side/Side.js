@@ -4,7 +4,7 @@ import "./SideBar.css"
 
 export default function Side() {
 
-  const [extended,setextended] = useState(false)
+  const [extended,setExtended] = useState(false)
 
   
   return (
@@ -12,17 +12,16 @@ export default function Side() {
       <div className='top'>
         <img src={assets.menu_icon} alt="" className='menu' />
         <div className='new-chat'>
-          <img onClick={()=>setextended(prev=>!prev)} src={assets.plus_icon} alt="" />
+          <img onClick={()=>setExtended(prev=>!prev)} src={assets.plus_icon} alt="" />
           {extended ? <p>New Chat</p> : null}
         </div>
-        {extended? <div className="recent">
+        { extended? <div className="recent">
           <p className="recent-title">Recent</p>
           <div className="recent-entry">
             <img src={assets.message_icon} alt="" />
             <p>What is react ...</p>
           </div>
-        </div>: null
-         }
+        </div>: null }
       </div>
       <div className="bottom">
         <div className="bottom-item recent-entry">
