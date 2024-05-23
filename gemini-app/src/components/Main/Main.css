@@ -35,3 +35,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.main .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+}
