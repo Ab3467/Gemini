@@ -1,8 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { assets } from "../../assets/assets.js"
 import "./SideBar.css"
 
 export default function Side() {
+
+  const [extended,setextended] = useState()
   return (
     <div className='sidebar'>
       <div className='top'>
