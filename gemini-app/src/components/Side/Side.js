@@ -1,10 +1,10 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { assets } from "../../assets/assets.js"
 import "./SideBar.css"
 
 export default function Side() {
 
-  const [extended,setextended] = useState(false)
+  const [extended, setextended] = useState(false)
   return (
     <div className='sidebar'>
       <div className='top'>
@@ -13,16 +13,16 @@ export default function Side() {
           <img src={assets.plus_icon} alt="" />
           {extended ? <p>New Chat</p> : null}
         </div>
-        {extended? <div className="recent">
+        {extended ? <div className="recent">
           <p className="recent-title">Recent</p>
           <div className="recent-entry">
             <img src={assets.message_icon} alt="" />
             <p>What is react ...</p>
           </div>
-        </div>: null
-         }
+        </div> : null
+        }
       </div>
-      <div className="bottom">
+      {extended ? <div className="bottom">
         <div className="bottom-item recent-entry">
           <img src={assets.question_icon} alt="" />
           <p>Help</p>
@@ -35,7 +35,8 @@ export default function Side() {
           <img src={assets.setting_icon} alt="" />
           <p>Setting</p>
         </div>
-      </div>
-    </div>
+      </div> : null
+      }
+    </div >
   )
 }
