@@ -23,25 +23,29 @@
     max-width: 900px;
     margin: auto;
 }
+
 .main .greet {
     margin: 50px 0px;
     font-size: 56px;
     color: #c4c7c5;
-    font-weight: 500px ;
+    font-weight: 500px;
     padding: 20px;
 }
-.main .greet span{
-    background: -webkit-linear-gradient(16deg, #4b90ff, #ff4056) ;
+
+.main .greet span {
+    background: -webkit-linear-gradient(16deg, #4b90ff, #ff4056);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.main .cards{
+
+.main .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
-    padding: 20px; 
+    padding: 20px;
 }
-.main .card{
+
+.main .card {
     height: 200px;
     padding: 15px;
     background-color: #f0f4f9;
@@ -49,7 +53,8 @@
     position: relative;
     cursor: pointer;
 }
-.main .card img{
+
+.main .card img {
     width: 35px;
     padding: 5px;
     position: absolute;
@@ -58,14 +63,17 @@
     bottom: 10px;
     right: 10px;
 }
-.main .card p{
+
+.main .card p {
     color: #585858;
     font-size: 17px;
 }
-.main .card:hover{
+
+.main .card:hover {
     background-color: #dfe4ea;
 }
-.main-bottom{
+
+.main-bottom {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -73,7 +81,8 @@
     padding: 0px 20px;
     margin: auto;
 }
-.searchBox{
+
+.searchBox {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -82,24 +91,28 @@
     padding: 10px 20px;
     border-radius: 15px;
 }
-.searchBox img{
+
+.searchBox img {
     width: 24px;
     cursor: pointer;
 }
-.searchBox input{
+
+.searchBox input {
     flex: 1;
     background: transparent;
     outline: none;
     font-size: 15px;
-     border: none;
-     padding: 8px;
+    border: none;
+    padding: 8px;
 }
-.searchBox div{
+
+.searchBox div {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-.main .bottom-info{
+
+.main .bottom-info {
     font-size: 13px;
     margin: 15px;
     align-items: center;
