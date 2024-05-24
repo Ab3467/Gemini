@@ -1,10 +1,8 @@
-
-
 import {
     GoogleGenerativeAI,
     HarmCategory,
     HarmBlockThreshold,
-  } from "@google/generative-ai"
+  } from "@google/generative-ai";
   
   const apiKey = "AIzaSyDfjZexHWHK0ws0y4E4chOOoxmAQqNUQnM";
   const genAI = new GoogleGenerativeAI(apiKey);
@@ -41,15 +39,16 @@ import {
   ];
   
   async function run(prompt) {
-    const chatSession = model.startChat({
+    const chatSession = await model.startChat({
       generationConfig,
       safetySettings,
-      history: [
-      ],
+      history: [],
     });
   
     const result = await chatSession.sendMessage(prompt);
-    console.log(result.response.text());
+    console.log(result.response);
+    return result.response;
   }
   
   export default run;
+  

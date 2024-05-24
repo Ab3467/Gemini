@@ -1,24 +1,23 @@
-import { createContext } from "react";
+import React, { createContext } from "react";
 import run from "../config/Gemini";
 
 export const Context = createContext();
 
-const ContextProvider = (props) =>{
+const ContextProvider = (props) => {
+  const onSent = async (prompt) => {
+    const response = await run(prompt);
+    console.log("API Response: ", response);
+  };
 
-const onSent = async(prompt)=>{
-    await run(prompt)
-}
+  const ContextValue = {
+    onSent,
+  };
 
-onSent("What is react-js")
-const ContextValue = {
-
-}
-
-return (
+  return (
     <Context.Provider value={ContextValue}>
-        {props.childern}
+      {props.children}
     </Context.Provider>
-)
-} 
+  );
+};
 
-export default ContextProvider
+export default ContextProvider;
