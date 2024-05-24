@@ -94,3 +94,14 @@
      border: none;
      padding: 8px;
 }
+.searchBox div{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.main .bottom-info{
+    font-size: 13px;
+    margin: 15px;
+    align-items: center;
+    font-weight: 300;
+}
