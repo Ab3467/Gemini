@@ -5,6 +5,7 @@ import "./SideBar.css"
 export default function Side() {
 
   const [extended,setExtended] = useState(false)
+  const [onSent,setonSent] = useState()
 
   
   return (
