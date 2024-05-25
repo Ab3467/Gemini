@@ -6,7 +6,7 @@ import { Context } from '../../context/Context.js'
 export default function Side() {
 
   const [extended, setExtended] = useState(false)
-  const [onSent, prevPrompt, setRecentPrompt] = useContext(Context)
+  const {onSent, prevPrompt, setRecentPrompt}= useContext(Context)
 
 
   return (
