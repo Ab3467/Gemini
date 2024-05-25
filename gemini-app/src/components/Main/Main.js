@@ -5,7 +5,7 @@ import { Context } from '../../context/Context'
 
 export default function Main() {
 
-  const {onSent,recentPrompt,showresult,loading,resultData,setInput,input} = useContext(Context)
+  const { onSent, recentPrompt, showresult, loading, resultData, setInput, input } = useContext(Context)
   return (
     <div className='main'>
       <div className="nav">
@@ -13,35 +13,46 @@ export default function Main() {
         <img src={assets.user_icon} alt="" />
       </div>
       <div className="main-container">
-        <div className="greet">
-          <span>Hello,Div</span>
-          <p>How can i help you?</p>
-        </div>
-        <div className="cards">
-          <div className="card">
-            <p>Suggest beautiful places to see on an upcoming road trip</p>
-            <img src={assets.compass_icon} alt="" />
+
+        {!showresult ? <>
+          <div className="greet">
+            <span>Hello,Div</span>
+            <p>How can i help you?</p>
           </div>
-          <div className="card">
-            <p>Suggest beautiful places to see on an upcoming road trip</p>
-            <img src={assets.bulb_icon} alt="" />
+          <div className="cards">
+            <div className="card">
+              <p>Suggest beautiful places to see on an upcoming road trip</p>
+              <img src={assets.compass_icon} alt="" />
+            </div>
+            <div className="card">
+              <p>Suggest beautiful places to see on an upcoming road trip</p>
+              <img src={assets.bulb_icon} alt="" />
+            </div>
+            <div className="card">
+              <p>Suggest beautiful places to see on an upcoming road trip</p>
+              <img src={assets.message_icon} alt="" />
+            </div>
+            <div className="card">
+              <p>Suggest beautiful places to see on an upcoming road trip</p>
+              <img src={assets.code_icon} alt="" />
+            </div>
           </div>
-          <div className="card">
-            <p>Suggest beautiful places to see on an upcoming road trip</p>
-            <img src={assets.message_icon} alt="" />
+        </> :
+          <div className="result">
+            <div className="result-title">
+              <img src={assets.user_icon} alt="" />
+              <p>{recentPrompt}</p>
+            </div>
           </div>
-          <div className="card">
-            <p>Suggest beautiful places to see on an upcoming road trip</p>
-            <img src={assets.code_icon} alt="" />
-          </div>
-        </div>
+        }
+
         <div className="main-bottom">
           <div className="searchBox">
-            <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" name="" id="" placeholder='Enter prompt here' />
+            <input onChange={(e) => setInput(e.target.value)} value={input} type="text" name="" id="" placeholder='Enter prompt here' />
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />
-              <img onClick={()=>onSent()} src={assets.send_icon} alt="" />
+              <img onClick={() => onSent()} src={assets.send_icon} alt="" />
             </div>
           </div>
           <p className='bottom-info'>
