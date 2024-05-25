@@ -44,7 +44,7 @@ export default function Main() {
               <p>{recentPrompt}</p>
             </div>
             <div className="result-data">
-              <img src={assets.gemini_icon} alt="" />
+              <img src={assets.ahmad} alt="" />
             </div>
           </div>
         }
