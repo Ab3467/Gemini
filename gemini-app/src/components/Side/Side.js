@@ -23,7 +23,7 @@ export default function Side() {
             return <>
                 <div className="recent-entry">
                 <img src={assets.message_icon} alt="" />
-                <p>What is react ...</p>
+                <p>{item} ...</p>
               </div>
             </>
           })}
