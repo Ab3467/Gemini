@@ -10,7 +10,7 @@ export default function Main() {
     <div className='main'>
       <div className="nav">
         <p>Gemini</p>
-        <img src={assets.ahmad} alt="" />
+        <img src={assets.user_icon} alt="" />
       </div>
       <div className="main-container">
 
@@ -40,7 +40,7 @@ export default function Main() {
         </> :
           <div className="result">
             <div className="result-title">
-              <img src={assets.ahmad} alt="" />
+              <img src={assets.user_icon} alt="" />
               <p>{recentPrompt}</p>
             </div>
             <div className="result-data">
