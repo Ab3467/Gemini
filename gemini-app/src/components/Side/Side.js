@@ -1,33 +1,38 @@
-import React,{useState} from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from "../../assets/assets.js"
 import "./SideBar.css"
+import { Context } from '../../context/Context.js'
 
 export default function Side() {
 
-  const [extended,setExtended] = useState(false)
-  const [onSent,setonSent] = useState()
+  const [extended, setExtended] = useState(false)
+  const [onSent, prevPrompt, setRecentPrompt] = useContext(Context)
 
-  
+
   return (
     <div className='sidebar'>
       <div className='top'>
-        <img onClick={()=>setExtended(prev=>!prev)} src={assets.menu_icon} alt="" className='menu' />
+        <img onClick={() => setExtended(prev => !prev)} src={assets.menu_icon} alt="" className='menu' />
         <div className='new-chat'>
           <img src={assets.plus_icon} alt="" />
           {extended ? <p>New Chat</p> : null}
         </div>
-        { extended? <div className="recent">
+        {extended ? <div className="recent">
           <p className="recent-title">Recent</p>
-          <div className="recent-entry">
-            <img src={assets.message_icon} alt="" />
-            <p>What is react ...</p>
-          </div>
-        </div>: null }
+          {prevPrompt.map((item, index) => {
+            return <>
+                <div className="recent-entry">
+                <img src={assets.message_icon} alt="" />
+                <p>What is react ...</p>
+              </div>
+            </>
+          })}
+        </div> : null}
       </div>
       <div className="bottom">
         <div className="bottom-item recent-entry">
           <img src={assets.question_icon} alt="" />
-         {extended ? <p>Help</p> : null}
+          {extended ? <p>Help</p> : null}
         </div>
         <div className="bottom-item recent-entry">
           <img src={assets.history_icon} alt="" />
