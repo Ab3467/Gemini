@@ -15,9 +15,14 @@ const ContextProvider = (props) => {
 
 
   const delayPara = (index,nextWord) =>{
-   setTimeout(() => {
+   setTimeout(function() {
     setResultdata(prev=>prev+nextWord);
    }, 75*index);
+  }
+
+  const newChat = ()=>{
+    setloading(false)
+    setShowResult(false)
   }
   
 
@@ -65,7 +70,8 @@ const ContextProvider = (props) => {
     input,
     setInput,
     loading,
-    resultData
+    resultData,
+    newChat
   };
 
   return (
