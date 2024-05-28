@@ -1,18 +1,16 @@
-import React, { useContext, useState } from 'react'
-import { assets } from "../../assets/assets.js"
-import "./SideBar.css"
-import { Context } from '../../context/Context.js'
+import React, { useContext, useState } from 'react';
+import { assets } from "../../assets/assets.js";
+import "./SideBar.css";
+import { Context } from '../../context/Context.js';
 
 export default function Side() {
+  const [extended, setExtended] = useState(false);
+  const { onSent, prevPrompt, setRecentPrompt } = useContext(Context);
 
-  const [extended, setExtended] = useState(false)
-  const {onSent, prevPrompt, setRecentPrompt}= useContext(Context)
-
-  const loadPrompt = async(prompt) =>{
-    setRecentPrompt(prompt)
+  const loadPrompt = async (prompt) => {
+    setRecentPrompt(prompt);
     await onSent(prompt);
-  }
-
+  };
 
   return (
     <div className='sidebar'>
@@ -22,20 +20,20 @@ export default function Side() {
           <img src={assets.plus_icon} alt="" />
           {extended ? <p>New Chat</p> : null}
         </div>
-        {extended ? <div className="recent">
-          <p className="recent-title">Recent</p>
-          {prevPrompt.map((item, index) => {
-            return <>
-                <div className="recent-entry">
+        {extended ? (
+          <div className="recent">
+            <p className="recent-title">Recent</p>
+            {prevPrompt.map((item, index) => (
+              <div key={index} className="recent-entry" onClick={() => loadPrompt(item)}>
                 <img src={assets.message_icon} alt="" />
-                <p>{item.slice(0,18)} ...</p>
+                <p>{item.slice(0, 18)}...</p>
               </div>
-            </>
-          })}
-        </div> : null}
+            ))}
+          </div>
+        ) : null}
       </div>
       <div className="bottom">
-        <div onClick={()=>loadPrompt(item)} className="bottom-item recent-entry">
+        <div onClick={() => loadPrompt('Help')} className="bottom-item recent-entry">
           <img src={assets.question_icon} alt="" />
           {extended ? <p>Help</p> : null}
         </div>
@@ -49,5 +47,5 @@ export default function Side() {
         </div>
       </div>
     </div>
-  )
+  );
 }
