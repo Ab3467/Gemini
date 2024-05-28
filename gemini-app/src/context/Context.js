@@ -4,60 +4,58 @@ import run from "../config/Gemini";
 export const Context = createContext();
 
 const ContextProvider = (props) => {
+  const [input, setInput] = useState("");
+  const [recentPrompt, setRecentPrompt] = useState("");
+  const [prevPrompt, setPrevPrompt] = useState([]);
+  const [showResult, setShowResult] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [resultData, setResultData] = useState("");
 
-  const [input,setInput] = useState("")
-  const [recentPrompt,setRecentPrompt] = useState("")
-  const [prevPrompt,setPrevPrompt] = useState([])
-  const [showresult,setShowResult] = useState(false)
-  const [loading,setloading] = useState(false)
-  const [resultData,setResultdata] = useState([])
+  const delayPara = (index, nextWord) => {
+    setTimeout(() => {
+      setResultData(prev => prev + nextWord);
+    }, 75 * index);
+  };
 
-
-
-  const delayPara = (index,nextWord) =>{
-   setTimeout(function() {
-    setResultdata(prev=>prev+nextWord);
-   }, 75*index);
-  }
-
-  const newChat = ()=>{
-    setloading(false)
-    setShowResult(false)
-  }
-  
+  const newChat = () => {
+    setLoading(false);
+    setShowResult(false);
+    setInput("");
+    setResultData("");
+  };
 
   const onSent = async (prompt) => {
-    setResultdata('')
-    setloading(true)
-    setShowResult(true)
-    let response;
-    if(prompt !== undefined){
-      response = await run(prompt)
-      setRecentPrompt(prompt)
-    } 
-    else{
-      setPrevPrompt(prev=>[...prev,input])
-      setRecentPrompt(input)
-      response = await run(input)
-    }
-    let responseArray = response.split("**")
-    let newResponse = "";
-    for(let i=0; i< responseArray.length;i++){
-      if(i === 0 || i%2 !== 1){
-        newResponse += responseArray[i];
+    setResultData("");
+    setLoading(true);
+    setShowResult(true);
+
+    let newPrompt = prompt !== undefined ? prompt : input;
+    if (newPrompt) {
+      setRecentPrompt(newPrompt);
+      setPrevPrompt(prev => [...prev, newPrompt]);
+
+      const response = await run(newPrompt);
+      let responseArray = response.split("**");
+      let newResponse = "";
+
+      for (let i = 0; i < responseArray.length; i++) {
+        if (i === 0 || i % 2 !== 1) {
+          newResponse += responseArray[i];
+        } else {
+          newResponse += "<b>" + responseArray[i] + "</b>";
+        }
       }
-      else{
-        newResponse += "<b>" + responseArray[i] + "</b>"
+
+      let newResponse2 = newResponse.split("*").join("<br>");
+      let newResponseArray = newResponse2.split(" ");
+      for (let i = 0; i < newResponseArray.length; i++) {
+        const nextWord = newResponseArray[i];
+        delayPara(i, nextWord + " ");
       }
     }
-    let newResponse2 = newResponse.split("*").join("</br>")
-    let  newresponseArray = newResponse2.split(" ");
-    for(let i=0;i<newresponseArray.length;i++){
-      const nextWord = newresponseArray[i];
-      delayPara(i,nextWord+ " ")
-    }
-    setloading(false)
-    setInput("")
+
+    setLoading(false);
+    setInput("");
   };
 
   const ContextValue = {
@@ -66,7 +64,7 @@ const ContextProvider = (props) => {
     onSent,
     recentPrompt,
     setRecentPrompt,
-    showresult,
+    showResult,
     input,
     setInput,
     loading,
