@@ -8,6 +8,11 @@ export default function Side() {
   const [extended, setExtended] = useState(false)
   const {onSent, prevPrompt, setRecentPrompt}= useContext(Context)
 
+  const loadPrompt = async(prompt) =>{
+    setRecentPrompt(prompt)
+    await onSent(prompt);
+  }
+
 
   return (
     <div className='sidebar'>
