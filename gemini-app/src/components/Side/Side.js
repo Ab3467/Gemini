@@ -26,7 +26,7 @@ export default function Side() {
           <p className="recent-title">Recent</p>
           {prevPrompt.map((item, index) => {
             return <>
-                <div className="recent-entry">
+                <div onClick={()=>loadPrompt(item)} className="recent-entry">
                 <img src={assets.message_icon} alt="" />
                 <p>{item.slice(0,18)} ...</p>
               </div>
@@ -35,7 +35,7 @@ export default function Side() {
         </div> : null}
       </div>
       <div className="bottom">
-        <div onClick={()=>loadPrompt(item)} className="bottom-item recent-entry">
+        <div className="bottom-item recent-entry">
           <img src={assets.question_icon} alt="" />
           {extended ? <p>Help</p> : null}
         </div>
