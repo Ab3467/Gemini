@@ -33,6 +33,7 @@ const ContextProvider = (props) => {
     else{
       setPrevPrompt(prev=>[...prev,input])
       setRecentPrompt(input)
+      response = await run(input);
     }
     let responseArray = response.split("**")
     let newResponse = "";
