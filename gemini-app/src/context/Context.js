@@ -4,51 +4,55 @@ import run from "../config/Gemini";
 export const Context = createContext();
 
 const ContextProvider = (props) => {
-  const [input, setInput] = useState("");
-  const [recentPrompt, setRecentPrompt] = useState("");
-  const [prevPrompt, setPrevPrompt] = useState([]);
-  const [showResult, setShowResult] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [resultData, setResultData] = useState("");
 
-  const delayPara = (index, nextWord) => {
-    setTimeout(() => {
-      setResultData(prev => prev + nextWord);
-    }, 75 * index);
-  };
+  const [input,setInput] = useState("")
+  const [recentPrompt,setRecentPrompt] = useState("")
+  const [prevPrompt,setPrevPrompt] = useState([])
+  const [showresult,setShowResult] = useState(false)
+  const [loading,setloading] = useState(false)
+  const [resultData,setResultdata] = useState([])
+
+
+
+  const delayPara = (index,nextWord) =>{
+   setTimeout(() => {
+    setResultdata(prev=>prev+nextWord);
+   }, 75*index);
+  }
+  
 
   const onSent = async (prompt) => {
-    setResultData('');  // Reset result data
-    setLoading(true);
-    setShowResult(true);
-
-    let newPrompt = prompt !== undefined ? prompt : input;
-    if (newPrompt) {
-      setRecentPrompt(newPrompt);
-      setPrevPrompt(prev => [...prev, newPrompt]);
-
-      const response = await run(newPrompt);
-      let responseArray = response.split("**");
-      let newResponse = "";
-
-      for (let i = 0; i < responseArray.length; i++) {
-        if (i === 0 || i % 2 !== 1) {
-          newResponse += responseArray[i];
-        } else {
-          newResponse += "<b>" + responseArray[i] + "</b>";
-        }
+    setResultdata('')
+    setloading(true)
+    setShowResult(true)
+    let response;
+    if(prompt !== undefined){
+      response = await run(prompt)
+      setRecentPrompt(prompt)
+    } 
+    else{
+      setPrevPrompt(prev=>[...prev,input])
+      setRecentPrompt(input)
+      response = await run(input)
+    }
+    let responseArray = response.split("**")
+    let newResponse = "";
+    for(let i=0; i< responseArray.length;i++){
+      if(i === 0 || i%2 !== 1){
+        newResponse += responseArray[i];
       }
-
-      let newResponse2 = newResponse.split("*").join("<br>");
-      let newResponseArray = newResponse2.split(" ");
-      for (let i = 0; i < newResponseArray.length; i++) {
-        const nextWord = newResponseArray[i];
-        delayPara(i, nextWord + " ");
+      else{
+        newResponse += "<b>" + responseArray[i] + "</b>"
       }
     }
-
-    setLoading(false);
-    setInput("");
+    let newResponse2 = newResponse.split("*").join("</br>")
+    let  newresponseArray = newResponse2.split(" ");
+    for(let i=0;i<newresponseArray.length;i++){
+      const nextWord = newresponseArray[i];
+      delayPara(i,nextWord+ " ")
+    }
+    setloading(false)
+    setInput("")
   };
 
   const ContextValue = {
@@ -57,7 +61,7 @@ const ContextProvider = (props) => {
     onSent,
     recentPrompt,
     setRecentPrompt,
-    showResult,
+    showresult,
     input,
     setInput,
     loading,
